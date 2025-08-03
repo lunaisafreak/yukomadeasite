@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://public-frontend-cos.metadl.com/mgx/img/favicon.png" type="image/png">
+    <title>YukoScripts - Roblox Scripts Hub</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <h1>YukoScripts</h1>
+                <div class="loading-spinner"></div>
+            </div>
+            <p>Loading amazing Roblox scripts...</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h2>YukoScripts</h2>
+            </div>
+            <div class="nav-links">
+                <a href="#home" class="nav-link active">Home</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Home Page -->
+        <div id="home-page" class="page active">
+            <div class="container">
+                <header class="hero">
+                    <h1>Premium Roblox Scripts</h1>
+                    <p>Discover the best Roblox scripts for your gaming experience</p>
+                    <div class="social-buttons">
+                        <a href="https://discord.gg/9ZVkgnUFwB" target="_blank" class="social-btn discord-btn">
+                            <i class="fab fa-discord"></i>
+                            <span>Join Discord</span>
+                        </a>
+                        <a href="https://www.youtube.com/@yukowastaken" target="_blank" class="social-btn youtube-btn">
+                            <i class="fab fa-youtube"></i>
+                            <span>YouTube Channel</span>
+                        </a>
+                    </div>
+                </header>
+
+                <!-- Search and Filter Section -->
+                <div class="search-filter-section">
+                    <div class="search-container">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" id="search-input" placeholder="Search scripts..." class="search-input">
+                    </div>
+                    <div class="filter-container">
+                        <select id="filter-select" class="filter-select">
+                            <option value="recent">Most Recent</option>
+                            <option value="views">Most Viewed</option>
+                            <option value="title">Title A-Z</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Scripts Grid -->
+                <div id="scripts-grid" class="scripts-grid">
+                    <!-- Scripts will be loaded here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Script Detail Page -->
+        <div id="script-detail-page" class="page">
+            <div class="container">
+                <button id="back-button" class="back-button">
+                    <i class="fas fa-arrow-left"></i> Back to Scripts
+                </button>
+                <div id="script-detail-content">
+                    <!-- Script detail will be loaded here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Admin Page -->
+        <div id="admin-page" class="page">
+            <div class="container">
+                <!-- Admin Login -->
+                <div id="admin-login" class="admin-section active">
+                    <div class="login-container">
+                        <h2>Admin Login</h2>
+                        <form id="login-form" class="login-form">
+                            <div class="form-group">
+                                <input type="email" id="admin-email" placeholder="Email" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" id="admin-password" placeholder="Password" required>
+                            </div>
+                            <button type="submit" class="btn-primary">Login</button>
+                        </form>
+                        <div id="login-error" class="error-message"></div>
+                    </div>
+                </div>
+
+                <!-- Admin Dashboard -->
+                <div id="admin-dashboard" class="admin-section">
+                    <div class="dashboard-header">
+                        <h2>Admin Dashboard</h2>
+                        <button id="logout-button" class="btn-secondary">Logout</button>
+                    </div>
+
+                    <div class="dashboard-content">
+                        <!-- Add Script Section -->
+                        <div class="dashboard-section">
+                            <h3>Add New Script</h3>
+                            <form id="add-script-form" class="script-form">
+                                <div class="form-group">
+                                    <label for="script-title">Title</label>
+                                    <input type="text" id="script-title" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="script-description">Description</label>
+                                    <textarea id="script-description" rows="4" required></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="script-link">Script Link</label>
+                                    <input type="url" id="script-link" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="video-links">YouTube Video Links (one per line)</label>
+                                    <textarea id="video-links" rows="3" placeholder="https://www.youtube.com/watch?v=..."></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="image-links">Image URLs (one per line)</label>
+                                    <textarea id="image-links" rows="3" placeholder="/images/exampleimage.jpg"></textarea>
+                                </div>
+                                <button type="submit" class="btn-primary">Add Script</button>
+                            </form>
+                        </div>
+
+                        <!-- Manage Scripts Section -->
+                        <div class="dashboard-section">
+                            <h3>Manage Scripts</h3>
+                            <div id="admin-scripts-list" class="admin-scripts-list">
+                                <!-- Scripts management will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Hidden Admin Access Button -->
+    <button id="hidden-admin-btn" class="hidden-admin-access">
+        <i class="fas fa-cog"></i>
+    </button>
+
+    <!-- Image Gallery Modal -->
+    <div id="image-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div class="image-gallery">
+                <button class="gallery-nav prev-btn">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <img id="gallery-image" src="" alt="Gallery Image">
+                <button class="gallery-nav next-btn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            <div class="gallery-indicators">
+                <!-- Indicators will be added here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-storage-compat.js"></script>
+    
+    <script type="module" src="./script.js"></script>
+</body>
+
+</html>
